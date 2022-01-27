@@ -2,25 +2,19 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React from "react";
 import { RecoilRoot } from "recoil";
-import Game from './game/Game';
-
+import Game from './game/Game.js';
+import {styles} from './Styles.js'
+import Control from './Control.js'
+// import Control from './Control.js';
 export default function App() {
   return (
     <RecoilRoot>
       <View style={styles.container}>
+        {/* <Control/> */}
         <Game />
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>Working on app</Text>
         <StatusBar style="auto" />
       </View>
     </RecoilRoot>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
