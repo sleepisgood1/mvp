@@ -1,21 +1,41 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useEffect} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const Circle = ({x, y, size, index, onClick}) => {
+const Circle = ({x, y, size, index, onClick, remove, circles}) => {
   var radius = size/2
+  // var timeout = setTimeout(()=>{
+  //   remove(circles, index)
+  // }, 3000)
     const circleStyle = {
-        borderRadius: `${radius}px`,
+        position: 'absolute',
+        borderRadius: radius,
         backgroundColor: `red`,
-        height: `${size}px`,
-        width: `${size}px`,
-        left: `${x}px`,
-        top: `${y}px`,
+        height: size,
+        width: size,
+        left: x,
+        top: y,
     };
+    // useEffect(()=>{
+    //   timeout
+    //   return timeout
 
+    // }, [remove]
+
+    // )
     return (
-        <View
-            style={circleStyle}
+        <TouchableOpacity
+            style={
+              x ? circleStyle : {
+                backgroundColor: `green`,
+                borderRadius: 20,
+                height: 40,
+                width: 40,
+                left: 10,
+                top: 10
+              }
+            }
             onClick={() => onClick(index)}
+            onPress={() => onClick(index)}
         />
     );
 };

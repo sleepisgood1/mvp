@@ -1,18 +1,13 @@
 import React, {useEffect, useCallback} from 'react'
-import { useRecoilState } from 'recoil';
 import {AppState, Button, StyleSheet, Text, View } from 'react-native';
-import { controlOptions } from './game/atomconfig.js';
+import {useState} from 'react'
 
-// const appState = useRef(AppState.currentState)
-// const [appStateVisible, setAppStateVisible] = useState(appState.current)
 
-const Control = ({ onReset }) => {
-    const [controlState, setControlState] = useRecoilState(controlOptions);
+const Control = ({ setControlState, controlState, onReset }) => {
     const {isRunning} = controlState;
 
     const togglePause = () => {
         setControlState((oldState) => {
-          console.log(oldState)
             return {...oldState, isRunning: !oldState.isRunning};
         });
     }
@@ -41,10 +36,20 @@ const Control = ({ onReset }) => {
   title="START"
   />)
   return (
-    <View>
+    <View style={{
+      justifyContent: 'flex-end',
+      // alignItems: 'flex-end',
+    }}>
+      <View style={{
+        borderRadius: 10 ,
+        alignSelf:'flex-end',
+        flexDirection:'row',
+        // flexWrap:'wrap'
+        }}>
         {isRunning ? running : notRunning}
         <Button onPress={onReset}
         title="Clear"/>
+        </View>
     </View>
   )
 }
