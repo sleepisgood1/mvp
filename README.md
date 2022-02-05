@@ -1,8 +1,7 @@
 # MVP
 Aim Helper
 
-# System Design Capstone
-Question and Answers API
+# Aim Helper
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
